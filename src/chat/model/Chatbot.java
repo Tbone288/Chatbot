@@ -54,10 +54,10 @@ public class Chatbot
 	private void buildPoliticalTopicsList()
 	{
 		politicalTopicList.add("Trump");
-		politicalTopicList.add("Clinton");
+		politicalTopicList.add("Hillary");
 		politicalTopicList.add("Democrat");
 		politicalTopicList.add("Republican");
-		politicalTopicList.add("11/18/16");
+		politicalTopicList.add("11/8/16");
 		politicalTopicList.add("conservative");
 		politicalTopicList.add("liberal");
 		politicalTopicList.add("Kaine");
@@ -70,7 +70,7 @@ public class Chatbot
 		politicalTopicList.add("nasty woman");
 		politicalTopicList.add("putin");
 		politicalTopicList.add("independent");
-		politicalTopicList.add("emails");
+		politicalTopicList.add("Clinton");
 								
 		
 	}
@@ -102,7 +102,14 @@ public class Chatbot
 	 */
 	public boolean contentChecker(String currentInput)
 	{
-		return false;
+		boolean hasContent = false;
+		
+		if(currentInput.contains(content))
+		{
+			hasContent = true;
+		}
+		
+		return hasContent;
 	}
 
 	/**
@@ -116,7 +123,17 @@ public class Chatbot
 	 */
 	public boolean politicalTopicChecker(String currentInput)
 	{
-		return false;
+		boolean isAPoliticalTopic = false;
+		
+		for (String currentPoliticalTopic: politicalTopicList)
+		{
+			if (currentPoliticalTopic.equals(currentInput))
+			{
+				isAPoliticalTopic = true;
+			}
+		}
+		return isAPoliticalTopic;	
+		
 	}
 
 	/**
@@ -129,7 +146,17 @@ public class Chatbot
 	 */
 	public boolean memeChecker(String currentInput)
 	{
-		return false;
+		boolean isAMeme = false;
+		
+		for (String currentMeme: memesList)
+		{
+			if (currentMeme.equalsIgnoreCase(currentInput))
+			{
+				isAMeme = true;
+			}
+			
+		}
+		return isAMeme;
 	}
 
 	/**
