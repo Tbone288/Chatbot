@@ -172,6 +172,40 @@ public class Chatbot
 		}
 		return didMash;
 	}
+	
+	public boolean inputHTMLChecker (String currentInput)
+	{
+		boolean html = false;
+		String firstOne;
+		int a = currentInput.indexOf(">");
+		if(a >= 0)
+		{
+			String trimmed = currentInput.replaceAll(" ", "");
+			int b = currentInput.length();
+			firstOne = currentInput.substring(0, a++);
+			a = currentInput.indexOf(">");
+			String secondOne = currentInput.substring(a++);
+			
+			if((currentInput.equalsIgnoreCase("<P>") || secondOne.contains("<") && secondOne.contains(">")) &&(trimmed.length() > 2 
+					&& !currentInput.endsWith("  ") && firstOne.length() > 2 && !currentInput.endsWith("F> </a>") && firstOne.contains("<")))
+					{
+						html = true;
+					}
+					
+		}
+		return html;
+	}
+	
+	public boolean quitChecker(String currentInput)
+	{
+		boolean didQuit = false;
+		
+		if(currentInput.equalsIgnoreCase("Quit"))
+		{
+			didQuit = true;
+		}
+		return didQuit;
+	}
 
 	/**
 	 * * Returns the username of this Chatbot instance. * @return The username
