@@ -161,6 +161,17 @@ public class Chatbot
 		}
 		return isAMeme;
 	}
+	
+	public boolean keyboardMashChecker(String currentInput)
+	{
+		boolean didMash = false;
+		
+		if((currentInput.contains("sdf") || currentInput.contains("derf") || currentInput.contains("asdf") || currentInput.contains("dfg") || currentInput.contains(",./")))
+		{
+			didMash = true;
+		}
+		return didMash;
+	}
 
 	/**
 	 * * Returns the username of this Chatbot instance. * @return The username
